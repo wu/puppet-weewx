@@ -1,3 +1,5 @@
+forge "http://forge.puppetlabs.com"
+
 mod "vcsrepo",
   :git => "git://github.com/puppetlabs/puppetlabs-vcsrepo"
 
