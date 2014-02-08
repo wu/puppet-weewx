@@ -88,7 +88,7 @@ class weewx::config {
     owner  => root,
     group  => root,
     mode   => 644,
-    content => template('raspi-weewx/weewx.conf'),
+    content => template('weewx/weewx.conf'),
     require => Class[ "weewx::install" ],
   }
 
@@ -103,7 +103,7 @@ class weewx::webserver {
     owner  => root,
     group  => root,
     mode   => 644,
-    source => "puppet:///modules/raspi-weewx/apache2-weewx.conf",
+    source => "puppet:///modules/weewx/apache2-weewx.conf",
     require => Package["apache2"],
   }
   service { "apache2":
