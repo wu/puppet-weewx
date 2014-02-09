@@ -8,16 +8,6 @@ This puppet module will install weewx.
 I am currently testing on a raspberry pi with an ambient weather model
 WS-2080A.
 
-
-* Raspberry pi
-  :PROPERTIES:
-  :ID:       49EA42EF-6A1F-4E9E-A186-E6058F3B35FE
-  :END:
-
-My bootstrapping checklist is here:
-
-  - https://github.com/wu/journal/blob/master/2014.01.24.raspi-bootstrap.org
-
 * Usage
   :PROPERTIES:
   :ID:       D3B88338-4FE7-4796-BA40-A7573C94699B
@@ -40,6 +30,16 @@ My bootstrapping checklist is here:
   }
 
 #+end_src
+
+
+* Raspberry pi
+  :PROPERTIES:
+  :ID:       49EA42EF-6A1F-4E9E-A186-E6058F3B35FE
+  :END:
+
+My bootstrapping checklist is here:
+
+  - https://github.com/wu/journal/blob/master/2014.01.24.raspi-bootstrap.org
 
 
 * Masterless
