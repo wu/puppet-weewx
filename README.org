@@ -8,44 +8,15 @@ This puppet module will install weewx.
 I am currently testing on a raspberry pi with an ambient weather model
 WS-2080A.
 
-* Raspi bootstrap
+
+* Raspberry pi
   :PROPERTIES:
   :ID:       49EA42EF-6A1F-4E9E-A186-E6058F3B35FE
-  :END:
-
-* Installation
-  :PROPERTIES:
-  :ID:       48B5F777-07DD-459F-878B-734727A1B170
   :END:
 
 My bootstrapping checklist is here:
 
   - https://github.com/wu/journal/blob/master/2014.01.24.raspi-bootstrap.org
-
-If you have your own puppetmaster, then just use that.
-
-If you want to apply this locally (without a master), then it is a
-little more tricky--this works although I'm not sure it is ideal.
-
-#+begin_src sh
-
-# get a copy of the puppet-weewx repo
-cd
-git clone git://github.com/wu/puppet-weewx.git weewx
-
-# install dependencies in 'modules' subdir with librarian-puppet
-cd weewx
-librarian-puppet install
-
-# edit mysite.pp, include your info
-vi mysite.pp
-
-# let puppet find the weewx module
-ln -s $PWD modules/weewx
-
-sudo puppet apply --modulepath=$PWD/modules mysite.pp
-
-#+end_src
 
 * Usage
   :PROPERTIES:
@@ -67,5 +38,38 @@ sudo puppet apply --modulepath=$PWD/modules mysite.pp
 
     include weewx
   }
+
+#+end_src
+
+
+* Masterless
+  :PROPERTIES:
+  :ID:       48B5F777-07DD-459F-878B-734727A1B170
+  :END:
+
+If you want to apply this locally (without a master), then it is a
+little more tricky.  This works--although I'm not sure it is ideal.
+
+#+begin_src sh
+
+  # get a copy of the puppet-weewx repo
+  cd
+  git clone git://github.com/wu/puppet-weewx.git weewx
+
+  # install dependencies in 'modules' subdir with librarian-puppet
+  cd weewx
+  librarian-puppet install
+
+  # edit mysite.pp, include your info
+  vi mysite.pp
+
+  # if you are using a station that does not use FineOffsetUSB, or if
+  # you use reports other than rsync, you may need to edit
+  # templates/weewx.conf
+
+  # so puppet can find the weewx module
+  ln -s $PWD modules/weewx
+
+  sudo puppet apply --modulepath=$PWD/modules mysite.pp
 
 #+end_src
