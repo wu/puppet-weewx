@@ -46,3 +46,26 @@ ln -s $PWD modules/weewx
 sudo puppet apply --modulepath=$PWD/modules mysite.pp
 
 #+end_src
+
+* Usage
+  :PROPERTIES:
+  :ID:       D3B88338-4FE7-4796-BA40-A7573C94699B
+  :END:
+
+#+begin_src puppet
+  node default {
+    $station_location = 'Hood River, Oregon'
+    $station_latitude  = '45.686'
+    $station_longitude = '-121.566'
+    $station_altitude  = '700, foot'
+    $station_url = 'http://www.example.com'
+    $station_type = 'FineOffsetUSB'
+    $station_model = 'WS2080'
+    $rsync_server = 'www.threefools.org'
+    $rsync_user = 'username'
+    $rsync_path = '/weather'
+
+    include weewx
+  }
+
+#+end_src
