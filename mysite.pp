@@ -1,14 +1,22 @@
 node default {
-  $station_location = 'Port Orchard, Washington'
-  $station_latitude  = '47.5403732'
-  $station_longitude = '-122.6362492'
-  $station_altitude  = '206, foot'
-  $station_url = 'http://www.geekfarm.org/weather/'
+  # hardware, see templates/weewx.conf
   $station_type = 'FineOffsetUSB'
   $station_model = 'WS2080'
-  $rsync_server = 'geekfarm.org'
-  $rsync_user = 'geekfarm'
-  $rsync_path = '/home3/geekfarm/public_html/weather/'
+
+  # required location information, see
+  #   http://www.daftlogic.com/sandbox-google-maps-find-altitude.htm
+  $station_location = 'Hood River, Oregon'
+  $station_latitude  = '45.686'
+  $station_longitude = '-121.566'
+  $station_altitude  = '700, foot'
+
+  # optional station URL
+  $station_url = 'http://www.example.com'
+
+  # option rsync server details
+  $rsync_server = 'www.threefools.org'
+  $rsync_user = 'username'
+  $rsync_path = '/weather'
 
   include weewx
 }

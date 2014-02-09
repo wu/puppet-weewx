@@ -13,6 +13,8 @@ WS-2080A.
   :ID:       74D47512-61D8-4582-828D-399795F599E7
   :END:
 
+  - https://github.com/wu/puppet-weewx
+
   - http://www.weewx.com
 
   - http://www.weewx.com/docs/setup.htm
