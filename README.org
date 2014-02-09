@@ -8,6 +8,15 @@ This puppet module will install weewx.
 I am currently testing on a raspberry pi with an ambient weather model
 WS-2080A.
 
+* Pointers
+  :PROPERTIES:
+  :ID:       74D47512-61D8-4582-828D-399795F599E7
+  :END:
+
+  - http://www.weewx.com
+
+  - http://www.weewx.com/docs/setup.htm
+
 * Usage
   :PROPERTIES:
   :ID:       D3B88338-4FE7-4796-BA40-A7573C94699B
@@ -15,13 +24,21 @@ WS-2080A.
 
 #+begin_src puppet
   node default {
+    # hardware, see templates/weewx.conf
+    $station_type = 'FineOffsetUSB'
+    $station_model = 'WS2080'
+
+    # required location information, see
+    #   http://www.daftlogic.com/sandbox-google-maps-find-altitude.htm
     $station_location = 'Hood River, Oregon'
     $station_latitude  = '45.686'
     $station_longitude = '-121.566'
     $station_altitude  = '700, foot'
+
+    # optional station URL
     $station_url = 'http://www.example.com'
-    $station_type = 'FineOffsetUSB'
-    $station_model = 'WS2080'
+
+    # option rsync server details
     $rsync_server = 'www.threefools.org'
     $rsync_user = 'username'
     $rsync_path = '/weather'
@@ -42,7 +59,7 @@ My bootstrapping checklist is here:
   - https://github.com/wu/journal/blob/master/2014.01.24.raspi-bootstrap.org
 
 
-* Masterless
+* Masterless Puppet
   :PROPERTIES:
   :ID:       48B5F777-07DD-459F-878B-734727A1B170
   :END:
@@ -73,3 +90,16 @@ little more tricky.  This works--although I'm not sure it is ideal.
   sudo puppet apply --modulepath=$PWD/modules mysite.pp
 
 #+end_src
+
+* Broken lines in graphs
+  :PROPERTIES:
+  :ID:       94365FAA-B79C-4CDD-9182-E1EED4432BC2
+  :END:
+
+When I first set up my WS2080, my 'today' graphs were showing up as
+broken lines.  Apparently this is a common problem.  The solution can
+be found here:
+
+  - http://www.weewx.com/docs/usersguide.htm#fo_changing_the_archive_interval
+
+
