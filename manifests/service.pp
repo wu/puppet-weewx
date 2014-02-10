@@ -25,19 +25,19 @@ class weewx::service {
     ensure => 'link',
     target => '../init.d/weewx',
   }
-  file { '/etc/rc2.d/S02weewx':
+  file { '/etc/rc2.d/S03weewx':
     ensure => 'link',
     target => '../init.d/weewx',
   }
-  file { '/etc/rc3.d/S02weewx':
+  file { '/etc/rc3.d/S03weewx':
     ensure => 'link',
     target => '../init.d/weewx',
   }
-  file { '/etc/rc4.d/S02weewx':
+  file { '/etc/rc4.d/S03weewx':
     ensure => 'link',
     target => '../init.d/weewx',
   }
-  file { '/etc/rc5.d/S02weewx':
+  file { '/etc/rc5.d/S03weewx':
     ensure => 'link',
     target => '../init.d/weewx',
   }
@@ -45,6 +45,4 @@ class weewx::service {
     ensure => 'link',
     target => '../init.d/weewx',
   }
-
-
 }
