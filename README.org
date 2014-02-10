@@ -93,6 +93,23 @@ little more tricky.  This works--although I'm not sure it is ideal.
 
 #+end_src
 
+* Bugs and limitations
+  :PROPERTIES:
+  :ID:       AC943F5A-7FC2-416E-87D2-1FE7F379B3B4
+  :END:
+
+The template will only handle configuration for the FineOffsetUSB
+driver.  If you use a different driver, you may need to edit the
+weewx.conf in the template directory.
+
+The only option report that can be configured through puppet is rsync.
+If you want to use one of the other reporting options, edit the
+weewx.conf in the template directory.
+
+The init.d script is the 'debian' one from the /home/weewx/util
+directory.  You may need to use one of the other scripts in that
+directory if you are not working on debian/raspbian.
+
 * Broken lines in graphs
   :PROPERTIES:
   :ID:       94365FAA-B79C-4CDD-9182-E1EED4432BC2
@@ -105,3 +122,9 @@ be found here:
   - http://www.weewx.com/docs/usersguide.htm#fo_changing_the_archive_interval
 
 
+* Contributing
+  :PROPERTIES:
+  :ID:       EA180883-1836-4A32-9508-63665DCE5759
+  :END:
+
+Patches or suggestions are welcomed.
